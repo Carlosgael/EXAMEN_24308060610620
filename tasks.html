@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}Mis tareas{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between mb-4">
+  <div>
+    <h3>Hola, {{ user.name }}</h3>
+    <p class="text-muted">Gestiona tus tareas</p>
+  </div>
+  <a href="{{ url_for('logout') }}" class="btn btn-outline-danger">Cerrar sesión</a>
+</div>
+
+<div class="row g-4">
+
+  <div class="col-lg-5">
+    <div class="card shadow border-0">
+      <div class="card-body p-4">
+
+        <form method="POST" action="{{ url_for('add_task') }}">
+
+          <input type="text" name="title" class="form-control mb-3" placeholder="Nueva tarea..." required>
+
+          <textarea name="description" class="form-control mb-3" placeholder="Descripción"></textarea>
+
+          <button class="btn btn-primary w-100">Guardar</button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- LISTA -->
+  <div class="col-lg-7">
+    <div class="card shadow border-0">
+      <div class="card-body p-4">
+
+        {% if tasks %}
+        <div class="list-group">
+
+          {% for task in tasks %}
+          <div class="list-group-item d-flex justify-content-between align-items-center">
+
+            <div class="{% if task.completed %}text-decoration-line-through text-muted{% endif %}">
+              <strong>{{ task.title }}</strong><br>
+              <small>{{ task.description or 'Sin descripción' }}</small>
+            </div>
+
+            <div class="d-flex gap-2">
+
+              <form method="POST" action="{{ url_for('toggle_task', task_id=task._id) }}">
+                <button class="btn btn-sm btn-outline-success">✔</button>
+              </form>
+
+              <form method="POST" action="{{ url_for('delete_task', task_id=task._id) }}">
+                <button class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Eliminar?')">
+                  🗑
+                </button>
+              </form>
+
+            </div>
+
+          </div>
+          {% endfor %}
+
+        </div>
+        {% else %}
+          <p class="text-muted">No tienes tareas aún.</p>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
