@@ -7,3 +7,5 @@ Descripcion: es el inicio de sesion ya funcional junto con el gestor de tareas c
 <img width="1365" height="715" alt="Captura de pantalla 2026-04-29 092202" src="https://github.com/user-attachments/assets/c2af550d-464a-4f8a-92e2-098cb49d45aa" />
 <img width="1362" height="720" alt="Captura de pantalla 2026-04-29 091937" src="https://github.com/user-attachments/assets/31c50fde-d098-4559-9f97-2b9a9ebdd2dc" />
 <img width="1362" height="712" alt="Captura de pantalla 2026-04-29 091919" src="https://github.com/user-attachments/assets/c251967c-cecd-4bc3-bc48-8a30fea0ba13" />
+<img width="1005" height="592" alt="Captura de pantalla 2026-04-29 090707" src="https://github.com/user-attachments/assets/a06a8fb1-d7ee-4850-991b-bff3670b06bf" />
+tuve un error por que no se queria instalar bien el bycrpt no detectaba que lo utilizaba pero si logre arregalarlo
